@@ -22,9 +22,9 @@ app.use((req,res, next) => {
     next();
 });
 
-app.use((req,res, next) => {
+/*app.use((req,res, next) => {
     res.render('maintainence.hbs')
-});
+});*/
 
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
@@ -53,6 +53,12 @@ app.get('/about', (req, res) => {
 });
 
 //Bad Response - Send Back json with error message
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects'
+    });
+});
 
 app.get('/bad', (req, res) => {
     res.send({
